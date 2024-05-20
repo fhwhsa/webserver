@@ -14,7 +14,7 @@
 #include "wrap.h"
 #include "type.h"
 
-#define IPADDR "10.61.251.209"
+#define IPADDR "127.0.0.1"
 #define PORT 8080
 
 /* 不允许访问的资源 */
@@ -242,6 +242,7 @@ int main()
     struct sockaddr_in cliaddr;
     socklen_t len = sizeof(cliaddr);
 
+    Printf("The server listens to %s, the listening port is %d\n", IPADDR, PORT);
     while (1)
     {
         int size = Epoll_wait(epfd, readylist, 1024, -1);
